@@ -138,8 +138,17 @@ public class AWSRequestSigningApacheInterceptor implements HttpRequestIntercepto
     private static Map<String, List<String>> nvpToMapParams(final List<NameValuePair> params) {
         Map<String, List<String>> parameterMap = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
         for (NameValuePair nvp : params) {
-            List<String> argsList =
-                    parameterMap.computeIfAbsent(nvp.getName(), k -> new ArrayList<>());
+            // java 1.8
+            //List<String> argsList = parameterMap.computeIfAbsent(nvp.getName(), k -> new ArrayList<>());
+
+            // java 1.7
+            List<String> argsList;
+            if (!parameterMap.containsKey(nvp.getName())) {
+                argsList = new ArrayList<>();
+                parameterMap.put(nvp.getName(), argsList);
+            } else {
+                argsList = parameterMap.get(nvp.getName());
+            }
             argsList.add(nvp.getValue());
         }
         return parameterMap;
