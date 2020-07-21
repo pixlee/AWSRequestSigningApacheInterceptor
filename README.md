@@ -14,7 +14,7 @@ AWS4Signer signer = new AWS4Signer();
     signer.setServiceName(serviceName);
     signer.setRegionName(AWS_REGION);
 
-HttpRequestInterceptor interceptor = new AWSRequestSigningApacheInterceptor(serviceName, signer, credentialsProvider);
+HttpRequestInterceptor interceptor = new PixleeAWSRequestSigningApacheInterceptor(serviceName, signer, credentialsProvider);
 
 HttpClients.custom()
     .addInterceptorLast(interceptor)
