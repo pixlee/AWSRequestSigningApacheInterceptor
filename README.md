@@ -1,6 +1,6 @@
 # AWS Request Signing Interceptor
 
-An AWS request signing interceptor for arbitrary HttpRequests.
+An AWS request signing interceptor for arbitrary HttpRequests. (works on java 1.7 and higher)
 
 This enables you to sign requests to any service that leverages SigV4 this means you have a client that can access any AWS Service or APIGW backed service.
 
