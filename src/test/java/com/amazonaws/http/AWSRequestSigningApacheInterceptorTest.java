@@ -35,10 +35,10 @@ import static org.junit.Assert.assertNull;
 
 public class AWSRequestSigningApacheInterceptorTest {
 
-    private static AWSRequestSigningApacheInterceptor createInterceptor() {
+    private static PixleeAWSRequestSigningApacheInterceptor createInterceptor() {
         AWSCredentialsProvider anonymousCredentialsProvider =
                 new AWSStaticCredentialsProvider(new AnonymousAWSCredentials());
-        return new AWSRequestSigningApacheInterceptor("servicename",
+        return new PixleeAWSRequestSigningApacheInterceptor("servicename",
                 new AddHeaderSigner("Signature", "wuzzle"),
                 anonymousCredentialsProvider);
 

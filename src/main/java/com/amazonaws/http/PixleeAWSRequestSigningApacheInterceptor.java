@@ -42,7 +42,7 @@ import static org.apache.http.protocol.HttpCoreContext.HTTP_TARGET_HOST;
  * An {@link HttpRequestInterceptor} that signs requests using any AWS {@link Signer}
  * and {@link AWSCredentialsProvider}.
  */
-public class AWSRequestSigningApacheInterceptor implements HttpRequestInterceptor {
+public class PixleeAWSRequestSigningApacheInterceptor implements HttpRequestInterceptor {
     /**
      * The service that we're connecting to. Technically not necessary.
      * Could be used by a future Signer, though.
@@ -65,9 +65,9 @@ public class AWSRequestSigningApacheInterceptor implements HttpRequestIntercepto
      * @param signer particular signer implementation
      * @param awsCredentialsProvider source of AWS credentials for signing
      */
-    public AWSRequestSigningApacheInterceptor(final String service,
-                                final Signer signer,
-                                final AWSCredentialsProvider awsCredentialsProvider) {
+    public PixleeAWSRequestSigningApacheInterceptor(final String service,
+                                                    final Signer signer,
+                                                    final AWSCredentialsProvider awsCredentialsProvider) {
         this.service = service;
         this.signer = signer;
         this.awsCredentialsProvider = awsCredentialsProvider;
